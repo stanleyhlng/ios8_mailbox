@@ -13,6 +13,7 @@
 		20FC43A519C914EC00B61F55 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20FC43A419C914EC00B61F55 /* Images.xcassets */; };
 		20FC43A819C914EC00B61F55 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20FC43A619C914EC00B61F55 /* LaunchScreen.xib */; };
 		20FC43B419C914EC00B61F55 /* ios8_mailboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC43B319C914EC00B61F55 /* ios8_mailboxTests.swift */; };
+		20FC43C119C94EBD00B61F55 /* MailboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC43C019C94EBD00B61F55 /* MailboxViewController.swift */; };
 		65EF9B10740346399485EDC0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A97066D154464494979EE4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		20FC43AD19C914EC00B61F55 /* ios8_mailboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ios8_mailboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FC43B219C914EC00B61F55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20FC43B319C914EC00B61F55 /* ios8_mailboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios8_mailboxTests.swift; sourceTree = "<group>"; };
+		20FC43C019C94EBD00B61F55 /* MailboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailboxViewController.swift; sourceTree = "<group>"; };
 		C2A97066D154464494979EE4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D50F7EC0495D40528CBDB3D3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,8 +85,7 @@
 		20FC439A19C914EC00B61F55 /* ios8_mailbox */ = {
 			isa = PBXGroup;
 			children = (
-				20FC439D19C914EC00B61F55 /* AppDelegate.swift */,
-				20FC439F19C914EC00B61F55 /* ViewController.swift */,
+				20FC43BD19C94BB500B61F55 /* Controllers */,
 				20FC43A119C914EC00B61F55 /* Main.storyboard */,
 				20FC43A419C914EC00B61F55 /* Images.xcassets */,
 				20FC43A619C914EC00B61F55 /* LaunchScreen.xib */,
@@ -116,6 +117,32 @@
 				20FC43B219C914EC00B61F55 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		20FC43BD19C94BB500B61F55 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				20FC43BF19C94EA200B61F55 /* Mailbox */,
+				20FC43BE19C94BBB00B61F55 /* App */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		20FC43BE19C94BBB00B61F55 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				20FC439D19C914EC00B61F55 /* AppDelegate.swift */,
+				20FC439F19C914EC00B61F55 /* ViewController.swift */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		20FC43BF19C94EA200B61F55 /* Mailbox */ = {
+			isa = PBXGroup;
+			children = (
+				20FC43C019C94EBD00B61F55 /* MailboxViewController.swift */,
+			);
+			name = Mailbox;
 			sourceTree = "<group>";
 		};
 		F780C8E52E2D4D21926E3C75 /* Frameworks */ = {
@@ -263,6 +290,7 @@
 			files = (
 				20FC43A019C914EC00B61F55 /* ViewController.swift in Sources */,
 				20FC439E19C914EC00B61F55 /* AppDelegate.swift in Sources */,
+				20FC43C119C94EBD00B61F55 /* MailboxViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

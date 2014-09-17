@@ -15,7 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         // Override point for customization after application launch.
+        
+        // Pause at the launch image view for 1 seconds
+        pause(1)
+        
         return true
     }
 
@@ -41,6 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func pause(second: NSTimeInterval) {
+        NSThread.sleepForTimeInterval(second)
+    }
 }
 
