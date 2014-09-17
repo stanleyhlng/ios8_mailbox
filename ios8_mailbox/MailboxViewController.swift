@@ -10,11 +10,19 @@ import UIKit
 
 class MailboxViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var helpImageView: UIImageView!
+    @IBOutlet weak var searchImageView: UIImageView!
+    @IBOutlet weak var messageImageView: UIImageView!
+    @IBOutlet weak var feedImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         println("MailboxViewController - viewDidLoad")
+        setupScrollView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,7 +30,23 @@ class MailboxViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func setupScrollView() {
+        
+        // Calculate content size
+        var size = CGSize(
+            width: contentView.frame.size.width,
+            height: helpImageView.frame.size.height +
+                    searchImageView.frame.size.height +
+                    messageImageView.frame.size.height +
+                    feedImageView.frame.size.height)
+        contentView.frame.size = size
+        
+        println("contentView.frame.size: \(contentView.frame.size)")
+        
+        // Set the content size
+        scrollView.contentSize = contentView.frame.size
+    }
+    
     /*
     // MARK: - Navigation
 
