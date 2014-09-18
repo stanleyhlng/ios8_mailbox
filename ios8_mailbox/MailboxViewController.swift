@@ -165,13 +165,13 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
             else if translation.x > -70 && translation.x <= 0 {
                 deleteIconImageView.alpha = 0
                 archiveIconImageView.alpha = 0
-                laterIconImageView.alpha = 1
+                laterIconImageView.alpha = abs(translation.x) / 70
                 listIconImageView.alpha = 0
             }
             // ICON: ARCHIVE (LIGHT GRAY)
             else if translation.x > 0 && translation.x <= 70 {
                 deleteIconImageView.alpha = 0
-                archiveIconImageView.alpha = 1
+                archiveIconImageView.alpha = abs(translation.x) / 70
                 laterIconImageView.alpha = 0
                 listIconImageView.alpha = 0
             }
