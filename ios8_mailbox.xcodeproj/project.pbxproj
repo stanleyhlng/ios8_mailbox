@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		205DDF8219CA9BC00031655A /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205DDF8119CA9BC00031655A /* ListViewController.swift */; };
+		205DDF8419CA9BE10031655A /* RescheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205DDF8319CA9BE10031655A /* RescheduleViewController.swift */; };
 		20FC439E19C914EC00B61F55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC439D19C914EC00B61F55 /* AppDelegate.swift */; };
 		20FC43A019C914EC00B61F55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC439F19C914EC00B61F55 /* ViewController.swift */; };
 		20FC43A319C914EC00B61F55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20FC43A119C914EC00B61F55 /* Main.storyboard */; };
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		205DDF8119CA9BC00031655A /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		205DDF8319CA9BE10031655A /* RescheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RescheduleViewController.swift; sourceTree = "<group>"; };
 		20FC439819C914EC00B61F55 /* ios8_mailbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios8_mailbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FC439C19C914EC00B61F55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20FC439D19C914EC00B61F55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +66,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		205DDF7F19CA9BA90031655A /* Reschedule */ = {
+			isa = PBXGroup;
+			children = (
+				205DDF8319CA9BE10031655A /* RescheduleViewController.swift */,
+			);
+			name = Reschedule;
+			sourceTree = "<group>";
+		};
+		205DDF8019CA9BB40031655A /* List */ = {
+			isa = PBXGroup;
+			children = (
+				205DDF8119CA9BC00031655A /* ListViewController.swift */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
 		20FC438F19C914EC00B61F55 = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +142,8 @@
 		20FC43BD19C94BB500B61F55 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				205DDF8019CA9BB40031655A /* List */,
+				205DDF7F19CA9BA90031655A /* Reschedule */,
 				20FC43BF19C94EA200B61F55 /* Mailbox */,
 				20FC43BE19C94BBB00B61F55 /* App */,
 			);
@@ -290,6 +312,8 @@
 			files = (
 				20FC43A019C914EC00B61F55 /* ViewController.swift in Sources */,
 				20FC439E19C914EC00B61F55 /* AppDelegate.swift in Sources */,
+				205DDF8219CA9BC00031655A /* ListViewController.swift in Sources */,
+				205DDF8419CA9BE10031655A /* RescheduleViewController.swift in Sources */,
 				20FC43C119C94EBD00B61F55 /* MailboxViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

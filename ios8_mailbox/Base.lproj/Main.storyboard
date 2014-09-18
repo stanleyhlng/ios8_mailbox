@@ -25,15 +25,31 @@
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcV-Hz-hiv">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="message" translatesAutoresizingMaskIntoConstraints="NO" id="mOl-Eb-Nzw">
-                                                <rect key="frame" x="0.0" y="78" width="320" height="86"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help_label" translatesAutoresizingMaskIntoConstraints="NO" id="CI8-TF-Og4">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="q4W-bm-Hkx">
                                                 <rect key="frame" x="0.0" y="37" width="320" height="42"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help_label" translatesAutoresizingMaskIntoConstraints="NO" id="CI8-TF-Og4">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
-                                            </imageView>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U0Y-3q-BTp">
+                                                <rect key="frame" x="0.0" y="78" width="320" height="86"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="archive_icon" translatesAutoresizingMaskIntoConstraints="NO" id="wcm-3D-Oy1">
+                                                        <rect key="frame" x="20" y="30" width="25" height="25"/>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="later_icon" translatesAutoresizingMaskIntoConstraints="NO" id="UbU-yM-hAN">
+                                                        <rect key="frame" x="275" y="30" width="25" height="25"/>
+                                                    </imageView>
+                                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="message" translatesAutoresizingMaskIntoConstraints="NO" id="mOl-Eb-Nzw">
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="TKg-en-IrV" appends="YES" id="fHC-o6-0F7"/>
+                                                        </connections>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feed" translatesAutoresizingMaskIntoConstraints="NO" id="chN-ZV-7Io">
                                                 <rect key="frame" x="0.0" y="164" width="320" height="1202"/>
                                             </imageView>
@@ -41,22 +57,87 @@
                                     </view>
                                 </subviews>
                             </scrollView>
+                            <segmentedControl opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="oee-A6-iVS">
+                                <rect key="frame" x="70" y="28" width="180" height="29"/>
+                                <segments>
+                                    <segment title="" image="later_nav_icon"/>
+                                    <segment title="" image="mail_nav_icon"/>
+                                    <segment title="" image="archive_nav_icon"/>
+                                </segments>
+                                <color key="tintColor" red="0.31764705882352939" green="0.72549019607843135" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="CHe-n7-IPT"/>
                     <connections>
+                        <outlet property="archiveIconImageView" destination="wcm-3D-Oy1" id="b6w-2c-CTf"/>
                         <outlet property="contentView" destination="lcV-Hz-hiv" id="MpD-ZH-2Oy"/>
                         <outlet property="feedImageView" destination="chN-ZV-7Io" id="epZ-mg-52Z"/>
                         <outlet property="helpImageView" destination="CI8-TF-Og4" id="TZe-5r-K8L"/>
+                        <outlet property="laterIconImageView" destination="UbU-yM-hAN" id="jLs-tc-iKE"/>
                         <outlet property="messageImageView" destination="mOl-Eb-Nzw" id="J4u-Uu-Saj"/>
+                        <outlet property="messageView" destination="U0Y-3q-BTp" id="2Nt-Kb-FcZ"/>
                         <outlet property="scrollView" destination="BE3-DZ-XaC" id="P8r-Ms-7LQ"/>
                         <outlet property="searchImageView" destination="q4W-bm-Hkx" id="viA-32-jwe"/>
+                        <segue destination="4U5-eP-O0h" kind="modal" identifier="rescheduleFromMailbox" id="cy1-IU-gaX"/>
+                        <segue destination="vJ1-zw-fbD" kind="modal" identifier="listFromMailbox" id="nzq-oD-s6x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="TKg-en-IrV" userLabel="onMessagePan">
+                    <connections>
+                        <action selector="onMessagePan:" destination="vXZ-lx-hvc" id="pWs-zw-5xH"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="694" y="317"/>
+        </scene>
+        <!--Reschedule View Controller-->
+        <scene sceneID="TCO-8o-lBo">
+            <objects>
+                <viewController id="4U5-eP-O0h" customClass="RescheduleViewController" customModule="ios8_mailbox" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lcd-uO-BTM"/>
+                        <viewControllerLayoutGuide type="bottom" id="dtJ-9G-MDP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tTF-fk-8UN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="reschedule" translatesAutoresizingMaskIntoConstraints="NO" id="B1U-p9-9up">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UdZ-a0-bVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1344" y="-59"/>
+        </scene>
+        <!--List View Controller-->
+        <scene sceneID="TVp-gr-XDk">
+            <objects>
+                <viewController id="vJ1-zw-fbD" customClass="ListViewController" customModule="ios8_mailbox" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WQC-If-9pE"/>
+                        <viewControllerLayoutGuide type="bottom" id="rrP-oX-buQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iYH-tU-BIG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="list" translatesAutoresizingMaskIntoConstraints="NO" id="GvH-Yn-yxe">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="icS-ic-B8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1344" y="658"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hfh-AU-1Cn">
@@ -78,10 +159,17 @@
         </scene>
     </scenes>
     <resources>
+        <image name="archive_icon" width="25" height="25"/>
+        <image name="archive_nav_icon" width="25" height="20"/>
         <image name="feed" width="320" height="1202"/>
         <image name="help_label" width="320" height="37"/>
+        <image name="later_icon" width="25" height="25"/>
+        <image name="later_nav_icon" width="25" height="20"/>
+        <image name="list" width="320" height="568"/>
+        <image name="mail_nav_icon" width="25" height="20"/>
         <image name="message" width="320" height="86"/>
         <image name="nav" width="320" height="65"/>
+        <image name="reschedule" width="320" height="568"/>
         <image name="search" width="320" height="42"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
