@@ -16,56 +16,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nav" translatesAutoresizingMaskIntoConstraints="NO" id="3uQ-TD-Yyp">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
-                            </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BE3-DZ-XaC">
-                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b0h-eE-ayM">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcV-Hz-hiv">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6e4-fW-uFD">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U0Y-3q-BTp">
-                                                <rect key="frame" x="0.0" y="78" width="320" height="86"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="archive_icon" translatesAutoresizingMaskIntoConstraints="NO" id="wcm-3D-Oy1">
-                                                        <rect key="frame" x="20" y="30" width="25" height="25"/>
-                                                    </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="later_icon" translatesAutoresizingMaskIntoConstraints="NO" id="UbU-yM-hAN">
-                                                        <rect key="frame" x="275" y="30" width="25" height="25"/>
-                                                    </imageView>
-                                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="message" translatesAutoresizingMaskIntoConstraints="NO" id="mOl-Eb-Nzw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
-                                                        <gestureRecognizers/>
-                                                        <connections>
-                                                            <outletCollection property="gestureRecognizers" destination="TKg-en-IrV" appends="YES" id="fHC-o6-0F7"/>
-                                                        </connections>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help_label" translatesAutoresizingMaskIntoConstraints="NO" id="CI8-TF-Og4">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="q4W-bm-Hkx">
-                                                <rect key="frame" x="0.0" y="37" width="320" height="42"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feed" translatesAutoresizingMaskIntoConstraints="NO" id="chN-ZV-7Io">
-                                                <rect key="frame" x="0.0" y="164" width="320" height="1202"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menu" translatesAutoresizingMaskIntoConstraints="NO" id="CqL-e1-dC0">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                             </imageView>
                                         </subviews>
-                                    </view>
+                                    </scrollView>
                                 </subviews>
-                            </scrollView>
-                            <segmentedControl opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="oee-A6-iVS">
-                                <rect key="frame" x="70" y="28" width="180" height="29"/>
-                                <segments>
-                                    <segment title="" image="later_nav_icon"/>
-                                    <segment title="" image="mail_nav_icon"/>
-                                    <segment title="" image="archive_nav_icon"/>
-                                </segments>
-                                <color key="tintColor" red="0.31764705882352939" green="0.72549019607843135" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
-                            </segmentedControl>
+                                <color key="backgroundColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Evn-eD-03Z">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nav" translatesAutoresizingMaskIntoConstraints="NO" id="3uQ-TD-Yyp">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                    </imageView>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BE3-DZ-XaC">
+                                        <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcV-Hz-hiv">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U0Y-3q-BTp">
+                                                        <rect key="frame" x="0.0" y="78" width="320" height="86"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="archive_icon" translatesAutoresizingMaskIntoConstraints="NO" id="wcm-3D-Oy1">
+                                                                <rect key="frame" x="20" y="30" width="25" height="25"/>
+                                                            </imageView>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="later_icon" translatesAutoresizingMaskIntoConstraints="NO" id="UbU-yM-hAN">
+                                                                <rect key="frame" x="275" y="30" width="25" height="25"/>
+                                                            </imageView>
+                                                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="message" translatesAutoresizingMaskIntoConstraints="NO" id="mOl-Eb-Nzw">
+                                                                <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
+                                                                <gestureRecognizers/>
+                                                                <connections>
+                                                                    <outletCollection property="gestureRecognizers" destination="TKg-en-IrV" appends="YES" id="fHC-o6-0F7"/>
+                                                                </connections>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help_label" translatesAutoresizingMaskIntoConstraints="NO" id="CI8-TF-Og4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="q4W-bm-Hkx">
+                                                        <rect key="frame" x="0.0" y="37" width="320" height="42"/>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feed" translatesAutoresizingMaskIntoConstraints="NO" id="chN-ZV-7Io">
+                                                        <rect key="frame" x="0.0" y="164" width="320" height="1202"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                        </subviews>
+                                    </scrollView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NeD-af-O9C">
+                                        <rect key="frame" x="0.0" y="20" width="55" height="45"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onMenu:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="QSz-zt-bmn"/>
+                                        </connections>
+                                    </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="oee-A6-iVS">
+                                        <rect key="frame" x="70" y="29" width="180" height="29"/>
+                                        <segments>
+                                            <segment title="" image="later_nav_icon"/>
+                                            <segment title="" image="mail_nav_icon"/>
+                                            <segment title="" image="archive_nav_icon"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.31764705882352939" green="0.72549019607843135" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -76,6 +105,9 @@
                         <outlet property="feedImageView" destination="chN-ZV-7Io" id="epZ-mg-52Z"/>
                         <outlet property="helpImageView" destination="CI8-TF-Og4" id="TZe-5r-K8L"/>
                         <outlet property="laterIconImageView" destination="UbU-yM-hAN" id="jLs-tc-iKE"/>
+                        <outlet property="mailboxView" destination="Evn-eD-03Z" id="6Qv-do-eoU"/>
+                        <outlet property="menuImageView" destination="CqL-e1-dC0" id="y3F-XM-KOL"/>
+                        <outlet property="menuScrollView" destination="6e4-fW-uFD" id="TMn-8u-Kc1"/>
                         <outlet property="messageImageView" destination="mOl-Eb-Nzw" id="J4u-Uu-Saj"/>
                         <outlet property="messageView" destination="U0Y-3q-BTp" id="2Nt-Kb-FcZ"/>
                         <outlet property="scrollView" destination="BE3-DZ-XaC" id="P8r-Ms-7LQ"/>
@@ -185,6 +217,7 @@
         <image name="later_nav_icon" width="25" height="20"/>
         <image name="list" width="320" height="568"/>
         <image name="mail_nav_icon" width="25" height="20"/>
+        <image name="menu" width="320" height="568"/>
         <image name="message" width="320" height="86"/>
         <image name="nav" width="320" height="65"/>
         <image name="reschedule" width="320" height="568"/>

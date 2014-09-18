@@ -10,6 +10,9 @@ import UIKit
 
 class MailboxViewController: UIViewController, RescheduleViewControllerDelegate, ListViewControllerDelegate {
 
+    @IBOutlet weak var menuScrollView: UIScrollView!
+    @IBOutlet weak var menuImageView: UIImageView!
+    @IBOutlet var mailboxView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var helpImageView: UIImageView!
@@ -27,7 +30,8 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
         // Do any additional setup after loading the view.
         println("MailboxViewController - viewDidLoad")
         setupPositions()
-        setupScrollView()
+        setupMailboxScrollView()
+        setupMenuScrollView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +40,10 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
     }
     
     func setupPositions() {
+        positions["mailbox"] = [
+            "open": CGPoint(x: 285, y: 0),
+            "close": CGPoint(x: 0, y: 0)
+        ]
         positions["feed"] = [
             "init": feedImageView.frame.origin
         ]
@@ -49,7 +57,7 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
         ]
     }
 
-    func setupScrollView() {
+    func setupMailboxScrollView() {
         
         // Calculate content size
         var size = CGSize(
@@ -64,6 +72,15 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
         
         // Set the content size
         scrollView.contentSize = contentView.frame.size
+    }
+    
+    func setupMenuScrollView() {
+        menuScrollView.contentSize = menuImageView.frame.size
+    }
+    
+    @IBAction func onMenu(sender: UIButton) {
+        println("MailboxViewController - onMenu")
+        toggleMenu()
     }
     
     @IBAction func onMessagePan(sender: UIPanGestureRecognizer) {
@@ -196,6 +213,18 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
 
             })
         }
+    }
+    
+    func toggleMenu() {
+        println("MailboxViewController - toggleMenu")
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
+            if (self.mailboxView.frame.origin == self.positions["mailbox"]!["open"]!) {
+                self.mailboxView.frame.origin = self.positions["mailbox"]!["close"]!
+            }
+            else {
+                self.mailboxView.frame.origin = self.positions["mailbox"]!["open"]!
+            }
+        })
     }
     
     func slideRightMessage() {
