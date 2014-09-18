@@ -125,6 +125,27 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
             messageImageView.frame.origin.x = pos.x
             println("message.pos.x: \(pos.x)")
             
+            // BG: BROWN
+            if translation.x <= -235 {
+                messageView.backgroundColor = UIColor.brownColor()
+            }
+            // BG: YELLOW
+            else if translation.x > -235 && translation.x <= -70 {
+                messageView.backgroundColor = UIColor.yellowColor()
+            }
+            // BG: LIGHT GRAY
+            else if translation.x > -70 && translation.x <= 70 {
+                messageView.backgroundColor = UIColor.lightGrayColor()
+            }
+            // BG: GREEN
+            else if translation.x > 70 && translation.x <= 235 {
+                messageView.backgroundColor = UIColor.greenColor()
+            }
+            // BG: RED
+            else if translation.x > 235 {
+                messageView.backgroundColor = UIColor.redColor()
+            }
+            
             // ICON:LATER
             /*
             if (translation.x < 0) {
@@ -211,12 +232,17 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
                             
                         }
                 
-                        // CASE 2: x > 60, ARCHIVE MESSAGE
-                        else if translation.x > 60 {
+                        // CASE 2: x > 60 && x <= 235, ARCHIVE MESSAGE
+                        else if translation.x > 60 && translation.x <= 235 {
                             println("ARCHIVE MESSAGE")
                             self.slideupFeed()
                         }
                         
+                        // CASE 3: x > 235, DELETE MESSAGE
+                        else if translation.x > 235 {
+                            println("DELETE MESSAGE")
+                            self.slideupFeed()
+                        }
                     }
 
             })
