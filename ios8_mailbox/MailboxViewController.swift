@@ -23,6 +23,7 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
     @IBOutlet weak var archiveIconImageView: UIImageView!
     @IBOutlet weak var laterIconImageView: UIImageView!
     @IBOutlet weak var listIconImageView: UIImageView!
+    @IBOutlet weak var deleteIconImageView: UIImageView!
     var positions = [String: [String: CGPoint]]()
     
     override func viewDidLoad() {
@@ -146,6 +147,49 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
                 messageView.backgroundColor = UIColor.redColor()
             }
             
+            // ICON: LIST (BROWN)
+            if translation.x <= -235 {
+                deleteIconImageView.alpha = 0
+                archiveIconImageView.alpha = 0
+                laterIconImageView.alpha = 0
+                listIconImageView.alpha = 1
+            }
+            // ICON: LATER (YELLOW)
+            else if translation.x > -235 && translation.x <= -70 {
+                deleteIconImageView.alpha = 0
+                archiveIconImageView.alpha = 0
+                laterIconImageView.alpha = 1
+                listIconImageView.alpha = 0
+            }
+            // ICON: LATER (LIGHT GRAY)
+            else if translation.x > -70 && translation.x <= 0 {
+                deleteIconImageView.alpha = 0
+                archiveIconImageView.alpha = 0
+                laterIconImageView.alpha = 1
+                listIconImageView.alpha = 0
+            }
+            // ICON: ARCHIVE (LIGHT GRAY)
+            else if translation.x > 0 && translation.x <= 70 {
+                deleteIconImageView.alpha = 0
+                archiveIconImageView.alpha = 1
+                laterIconImageView.alpha = 0
+                listIconImageView.alpha = 0
+            }
+            // ICON: ARCHIVE (GREEN)
+            else if translation.x > 70 && translation.x <= 235 {
+                deleteIconImageView.alpha = 0
+                archiveIconImageView.alpha = 1
+                laterIconImageView.alpha = 0
+                listIconImageView.alpha = 0
+            }
+            // ICON: DELETE (RED)
+            else if translation.x > 235 {
+                deleteIconImageView.alpha = 1
+                archiveIconImageView.alpha = 0
+                laterIconImageView.alpha = 0
+                listIconImageView.alpha = 0
+            }
+            
             // ICON:LATER
             /*
             if (translation.x < 0) {
@@ -205,6 +249,12 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
                     
                 }, completion: { (done: Bool) -> Void in
 
+                    // HIDE ICONS
+                    self.deleteIconImageView.alpha = 0
+                    self.archiveIconImageView.alpha = 0
+                    self.laterIconImageView.alpha = 0
+                    self.listIconImageView.alpha = 0
+                    
                     if translation.x <= 0 {
                         
                         // CASE 1: x <= -220, SHOW LIST OPTIONS

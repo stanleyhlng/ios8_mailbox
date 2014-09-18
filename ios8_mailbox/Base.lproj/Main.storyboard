@@ -48,6 +48,9 @@
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="archive_icon" translatesAutoresizingMaskIntoConstraints="NO" id="wcm-3D-Oy1">
                                                                 <rect key="frame" x="20" y="30" width="25" height="25"/>
                                                             </imageView>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="delete_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Ky2-fx-oBv">
+                                                                <rect key="frame" x="20" y="30" width="25" height="25"/>
+                                                            </imageView>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="later_icon" translatesAutoresizingMaskIntoConstraints="NO" id="UbU-yM-hAN">
                                                                 <rect key="frame" x="275" y="30" width="25" height="25"/>
                                                             </imageView>
@@ -106,6 +109,7 @@
                     <connections>
                         <outlet property="archiveIconImageView" destination="wcm-3D-Oy1" id="b6w-2c-CTf"/>
                         <outlet property="contentView" destination="lcV-Hz-hiv" id="MpD-ZH-2Oy"/>
+                        <outlet property="deleteIconImageView" destination="Ky2-fx-oBv" id="L8f-2u-w94"/>
                         <outlet property="feedImageView" destination="chN-ZV-7Io" id="epZ-mg-52Z"/>
                         <outlet property="helpImageView" destination="CI8-TF-Og4" id="TZe-5r-K8L"/>
                         <outlet property="laterIconImageView" destination="UbU-yM-hAN" id="jLs-tc-iKE"/>
@@ -216,6 +220,7 @@
     <resources>
         <image name="archive_icon" width="25" height="25"/>
         <image name="archive_nav_icon" width="25" height="20"/>
+        <image name="delete_icon" width="25" height="25"/>
         <image name="feed" width="320" height="1202"/>
         <image name="help_label" width="320" height="37"/>
         <image name="later_icon" width="25" height="25"/>
