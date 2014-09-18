@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MailboxViewController: UIViewController {
+class MailboxViewController: UIViewController, RescheduleViewControllerDelegate, ListViewControllerDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
@@ -161,11 +161,13 @@ class MailboxViewController: UIViewController {
                         // CASE 1: x <= -220, SHOW LIST OPTIONS
                         if translation.x <= -220 {
                             println("SHOW LIST OPTIONS")
+                            self.performSegueWithIdentifier("listFromMailbox", sender: self)
                         }
                 
                         // CASE 2: -220 < x <= -60, SHOW RESCHEDULE OPTIONS
                         else if translation.x > -220 && translation.x <= -60 {
                             println("SHOW RESHEDULE OPTIONS")
+                            self.performSegueWithIdentifier("rescheduleFromMailbox", sender: self)
                         }
                         
                         // CASE 3: -60 < x <= 0, DO NOTHING
@@ -192,14 +194,46 @@ class MailboxViewController: UIViewController {
         }
     }
     
-    /*
+    func slideRightMessage() {
+        UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.2, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            
+            self.messageImageView.frame.origin.x = self.positions["message"]!["init"]!.x
+            
+            }, completion: nil)
+    }
+    
+    // MARK: - RescheduleViewControllerDelegate
+    
+    func dismissReschedule(message: String) {
+
+        println("MailboxViewController - dismissReschedule")
+        slideRightMessage()
+        
+    }
+
+    // MARK: - ListViewControllerDelegate
+    
+    func dismissList(message: String) {
+        
+        println("MailboxViewController - dismissList")
+        slideRightMessage()
+    
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.destinationViewController is RescheduleViewController {
+            var controller = segue.destinationViewController as RescheduleViewController
+            controller.delegate = self
+        }
+        else if segue.destinationViewController is ListViewController {
+            var controller = segue.destinationViewController as ListViewController
+            controller.delegate = self
+        }
     }
-    */
-
 }

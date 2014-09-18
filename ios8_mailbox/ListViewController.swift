@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol ListViewControllerDelegate {
+    func dismissList(message: String)
+}
+
 class ListViewController: UIViewController {
+
+    var delegate: ListViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +28,15 @@ class ListViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onTap(sender: UITapGestureRecognizer) {
+
+        println("ListViewController - onTap")
+        dismissViewControllerAnimated(true, completion: { () -> Void in
+            println("ListViewController - done")
+            self.delegate?.dismissList("message from ListViewController")
+        })
+        
+    }
 
     /*
     // MARK: - Navigation

@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol RescheduleViewControllerDelegate {
+    func dismissReschedule(message: String)
+}
+
 class RescheduleViewController: UIViewController {
+
+    var delegate: RescheduleViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +28,14 @@ class RescheduleViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onTap(sender: UITapGestureRecognizer) {
+        println("RescheduleViewController - onTap")
+        dismissViewControllerAnimated(true, completion: { () -> Void in
+
+            println("RescheduleViewController - done")
+            self.delegate?.dismissReschedule("message from RescheduleViewController")
+        })
+    }
 
     /*
     // MARK: - Navigation

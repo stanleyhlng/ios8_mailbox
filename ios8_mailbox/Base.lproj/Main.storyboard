@@ -80,8 +80,8 @@
                         <outlet property="messageView" destination="U0Y-3q-BTp" id="2Nt-Kb-FcZ"/>
                         <outlet property="scrollView" destination="BE3-DZ-XaC" id="P8r-Ms-7LQ"/>
                         <outlet property="searchImageView" destination="q4W-bm-Hkx" id="viA-32-jwe"/>
-                        <segue destination="4U5-eP-O0h" kind="modal" identifier="rescheduleFromMailbox" id="cy1-IU-gaX"/>
-                        <segue destination="vJ1-zw-fbD" kind="modal" identifier="listFromMailbox" id="nzq-oD-s6x"/>
+                        <segue destination="4U5-eP-O0h" kind="modal" identifier="rescheduleFromMailbox" modalTransitionStyle="crossDissolve" id="cy1-IU-gaX"/>
+                        <segue destination="vJ1-zw-fbD" kind="modal" identifier="listFromMailbox" modalTransitionStyle="crossDissolve" id="nzq-oD-s6x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -105,14 +105,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="reschedule" translatesAutoresizingMaskIntoConstraints="NO" id="B1U-p9-9up">
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="reschedule" translatesAutoresizingMaskIntoConstraints="NO" id="B1U-p9-9up">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="WF2-c6-Jm0" appends="YES" id="HFC-5g-vqe"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UdZ-a0-bVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="WF2-c6-Jm0" userLabel="onTap">
+                    <connections>
+                        <action selector="onTap:" destination="4U5-eP-O0h" id="Kbc-jx-Ir3"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1344" y="-59"/>
         </scene>
@@ -128,14 +137,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="list" translatesAutoresizingMaskIntoConstraints="NO" id="GvH-Yn-yxe">
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="list" translatesAutoresizingMaskIntoConstraints="NO" id="GvH-Yn-yxe">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="AuE-6v-0IZ" appends="YES" id="oD9-mb-osA"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="icS-ic-B8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="AuE-6v-0IZ" userLabel="onTap">
+                    <connections>
+                        <action selector="onTap:" destination="vJ1-zw-fbD" id="7sW-KM-IoN"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1344" y="658"/>
         </scene>
