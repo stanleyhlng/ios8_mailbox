@@ -32,11 +32,18 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
         setupPositions()
         setupMailboxScrollView()
         setupMenuScrollView()
+        setupScreenEdgePanGesture()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setupScreenEdgePanGesture() {
+        var edgeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "onScreenEdgePan:")
+        edgeGesture.edges = UIRectEdge.Left
+        contentView.addGestureRecognizer(edgeGesture)
     }
     
     func setupPositions() {
@@ -211,6 +218,38 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
                         
                     }
 
+            })
+        }
+    }
+    
+    func onScreenEdgePan(sender: UIScreenEdgePanGestureRecognizer) {
+        println("MailboxViewController - onScreenEdgePan")
+        
+        var location = sender.locationInView(view)
+        println("location.x: \(location.x)")
+        
+        var translation = sender.translationInView(view)
+        println("translation.x: \(translation.x)")
+        
+        if sender.state == UIGestureRecognizerState.Began {
+            // MAILBOX
+        }
+        else if sender.state == UIGestureRecognizerState.Changed {
+            // MAILBOX
+            var pos = positions["mailbox"]!["close"]!
+            pos.x = pos.x + translation.x
+            mailboxView.frame.origin.x = pos.x
+            println("mailbox.pos.x: \(pos.x)")
+        }
+        else if sender.state == UIGestureRecognizerState.Ended {
+            // MAILBOX
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                if translation.x >= 125 {
+                    self.mailboxView.frame.origin = self.positions["mailbox"]!["open"]!
+                }
+                else {
+                    self.mailboxView.frame.origin = self.positions["mailbox"]!["close"]!
+                }
             })
         }
     }
