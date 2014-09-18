@@ -36,6 +36,9 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
     }
     
     func setupPositions() {
+        positions["feed"] = [
+            "init": feedImageView.frame.origin
+        ]
         positions["message"] = [
             "init": messageImageView.frame.origin,
             "left": CGPoint(x: -messageImageView.frame.size.width, y: messageImageView.frame.origin.y),
@@ -186,6 +189,7 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
                         // CASE 2: x > 60, ARCHIVE MESSAGE
                         else if translation.x > 60 {
                             println("ARCHIVE MESSAGE")
+                            self.slideupFeed()
                         }
                         
                     }
@@ -200,6 +204,39 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
             self.messageImageView.frame.origin.x = self.positions["message"]!["init"]!.x
             
             }, completion: nil)
+    }
+    
+    func slideupFeed() {
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
+
+        self.feedImageView.frame.origin.y = self.searchImageView.frame.origin.y + self.searchImageView.frame.size.height - 1
+            
+        }, completion: nil)
+    }
+    
+    func slidedownFeedAndMessage() {
+        
+        messageImageView.frame.origin.x = positions["message"]!["init"]!.x
+        messageImageView.frame.origin.y = positions["message"]!["init"]!.y - messageImageView.frame.height
+        
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
+            self.messageImageView.frame.origin = self.positions["message"]!["init"]!
+            self.feedImageView.frame.origin.y = self.positions["feed"]!["init"]!.y
+        })
+    }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
+
+        if motion == UIEventSubtype.MotionShake {
+            // User was shaking the device
+            println("Shaking")
+            
+            if (messageImageView.frame.origin != positions["message"]!["init"]!) {
+                println("Slide down feed and message")
+                slidedownFeedAndMessage()
+            }
+        }
+    
     }
     
     // MARK: - RescheduleViewControllerDelegate
@@ -222,7 +259,6 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

@@ -25,12 +25,6 @@
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcV-Hz-hiv">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help_label" translatesAutoresizingMaskIntoConstraints="NO" id="CI8-TF-Og4">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="q4W-bm-Hkx">
-                                                <rect key="frame" x="0.0" y="37" width="320" height="42"/>
-                                            </imageView>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U0Y-3q-BTp">
                                                 <rect key="frame" x="0.0" y="78" width="320" height="86"/>
                                                 <subviews>
@@ -50,6 +44,12 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help_label" translatesAutoresizingMaskIntoConstraints="NO" id="CI8-TF-Og4">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="q4W-bm-Hkx">
+                                                <rect key="frame" x="0.0" y="37" width="320" height="42"/>
+                                            </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feed" translatesAutoresizingMaskIntoConstraints="NO" id="chN-ZV-7Io">
                                                 <rect key="frame" x="0.0" y="164" width="320" height="1202"/>
                                             </imageView>
