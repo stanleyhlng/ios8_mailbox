@@ -22,6 +22,7 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
     @IBOutlet weak var messageView: UIView!
     @IBOutlet weak var archiveIconImageView: UIImageView!
     @IBOutlet weak var laterIconImageView: UIImageView!
+    @IBOutlet weak var listIconImageView: UIImageView!
     var positions = [String: [String: CGPoint]]()
     
     override func viewDidLoad() {

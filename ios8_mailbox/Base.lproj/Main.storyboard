@@ -51,6 +51,9 @@
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="later_icon" translatesAutoresizingMaskIntoConstraints="NO" id="UbU-yM-hAN">
                                                                 <rect key="frame" x="275" y="30" width="25" height="25"/>
                                                             </imageView>
+                                                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="list_icon" translatesAutoresizingMaskIntoConstraints="NO" id="sfe-AM-cCu">
+                                                                <rect key="frame" x="275" y="30" width="25" height="25"/>
+                                                            </imageView>
                                                             <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="message" translatesAutoresizingMaskIntoConstraints="NO" id="mOl-Eb-Nzw">
                                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
                                                                 <gestureRecognizers/>
@@ -106,6 +109,7 @@
                         <outlet property="feedImageView" destination="chN-ZV-7Io" id="epZ-mg-52Z"/>
                         <outlet property="helpImageView" destination="CI8-TF-Og4" id="TZe-5r-K8L"/>
                         <outlet property="laterIconImageView" destination="UbU-yM-hAN" id="jLs-tc-iKE"/>
+                        <outlet property="listIconImageView" destination="sfe-AM-cCu" id="NdC-Yv-Nhz"/>
                         <outlet property="mailboxView" destination="Evn-eD-03Z" id="6Qv-do-eoU"/>
                         <outlet property="menuImageView" destination="CqL-e1-dC0" id="y3F-XM-KOL"/>
                         <outlet property="menuScrollView" destination="6e4-fW-uFD" id="TMn-8u-Kc1"/>
@@ -217,6 +221,7 @@
         <image name="later_icon" width="25" height="25"/>
         <image name="later_nav_icon" width="25" height="20"/>
         <image name="list" width="320" height="568"/>
+        <image name="list_icon" width="25" height="25"/>
         <image name="mail_nav_icon" width="25" height="20"/>
         <image name="menu" width="320" height="568"/>
         <image name="message" width="320" height="86"/>
