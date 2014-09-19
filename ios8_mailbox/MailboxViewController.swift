@@ -27,6 +27,9 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
     @IBOutlet weak var laterIconImageView: UIImageView!
     @IBOutlet weak var listIconImageView: UIImageView!
     @IBOutlet weak var deleteIconImageView: UIImageView!
+    @IBOutlet weak var composeView: UIView!
+    @IBOutlet weak var composeHeader: UIView!
+    @IBOutlet weak var composeInputs: UIView!
     var positions = [String: [String: CGPoint]]()
     var selectedSegmentIndex = 1
     
@@ -100,9 +103,23 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
         menuScrollView.contentSize = menuImageView.frame.size
     }
     
+    @IBAction func onCancel(sender: UIButton) {
+        println("MailboxViewController - onCancel")
+        composeView.hidden = true
+    }
+    
     @IBAction func onMenu(sender: UIButton) {
         println("MailboxViewController - onMenu")
         toggleMenu()
+    }
+    
+    @IBAction func onCompose(sender: UIButton) {
+        println("MailboxViewController - onCompose")
+        composeView.hidden = false
+        composeInputs.frame.origin.y = composeView.frame.height
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
+            self.composeInputs.frame.origin.y = 70
+        })
     }
     
     @IBAction func onMessagePan(sender: UIPanGestureRecognizer) {
@@ -339,7 +356,7 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
     @IBAction func onValueChanged(sender: UISegmentedControl) {
         println("MailboxViewController - onValueChanged")
         println(sender.selectedSegmentIndex)
-
+        
         // CASE 1: 0 -> 1
         if (selectedSegmentIndex == 0 && sender.selectedSegmentIndex == 1) {
             self.archiveFeedView.alpha = 0

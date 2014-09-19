@@ -113,6 +113,15 @@
                                             <action selector="onMenu:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="QSz-zt-bmn"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBh-8v-aC9">
+                                        <rect key="frame" x="256" y="0.0" width="64" height="64"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onCompose:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HBm-qZ-mvc"/>
+                                        </connections>
+                                    </button>
                                     <segmentedControl opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="oee-A6-iVS">
                                         <rect key="frame" x="70" y="29" width="180" height="29"/>
                                         <segments>
@@ -129,6 +138,40 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EJo-49-TsU">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="564"/>
+                                <subviews>
+                                    <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z6O-wA-F3F">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="compose_header" translatesAutoresizingMaskIntoConstraints="NO" id="pap-El-nCS">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ga5-GJ-Czh">
+                                        <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                        <subviews>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oXO-G5-tTb">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="503"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="compose_input" translatesAutoresizingMaskIntoConstraints="NO" id="gAa-SN-bzW">
+                                                        <rect key="frame" x="0.0" y="10" width="320" height="210"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </scrollView>
+                                        </subviews>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNx-7x-rGN">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="64"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onCancel:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="KDW-UP-Uno"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -136,6 +179,9 @@
                     <connections>
                         <outlet property="archiveFeedView" destination="Fs2-l0-Y8K" id="aLS-Cl-Skj"/>
                         <outlet property="archiveIconImageView" destination="wcm-3D-Oy1" id="b6w-2c-CTf"/>
+                        <outlet property="composeHeader" destination="z6O-wA-F3F" id="yfc-Mh-Ub6"/>
+                        <outlet property="composeInputs" destination="Ga5-GJ-Czh" id="62k-48-iQP"/>
+                        <outlet property="composeView" destination="EJo-49-TsU" id="qYo-Eo-Wj4"/>
                         <outlet property="contentView" destination="lcV-Hz-hiv" id="MpD-ZH-2Oy"/>
                         <outlet property="deleteIconImageView" destination="Ky2-fx-oBv" id="L8f-2u-w94"/>
                         <outlet property="feedImageView" destination="chN-ZV-7Io" id="epZ-mg-52Z"/>
@@ -250,6 +296,8 @@
     <resources>
         <image name="archive_icon" width="25" height="25"/>
         <image name="archive_nav_icon" width="25" height="20"/>
+        <image name="compose_header" width="320" height="64"/>
+        <image name="compose_input" width="320" height="210"/>
         <image name="delete_icon" width="25" height="25"/>
         <image name="feed" width="320" height="1202"/>
         <image name="help_label" width="320" height="37"/>
