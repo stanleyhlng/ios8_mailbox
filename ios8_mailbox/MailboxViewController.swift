@@ -10,6 +10,9 @@ import UIKit
 
 class MailboxViewController: UIViewController, RescheduleViewControllerDelegate, ListViewControllerDelegate {
 
+    @IBOutlet weak var archiveFeedView: UIView!
+    @IBOutlet weak var laterFeedView: UIView!
+    @IBOutlet weak var mailboxFeedView: UIView!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var menuScrollView: UIScrollView!
     @IBOutlet weak var menuImageView: UIImageView!
@@ -25,6 +28,7 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
     @IBOutlet weak var listIconImageView: UIImageView!
     @IBOutlet weak var deleteIconImageView: UIImageView!
     var positions = [String: [String: CGPoint]]()
+    var selectedSegmentIndex = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -335,12 +339,110 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
     @IBAction func onValueChanged(sender: UISegmentedControl) {
         println("MailboxViewController - onValueChanged")
         println(sender.selectedSegmentIndex)
+
         // CASE 1: 0 -> 1
+        if (selectedSegmentIndex == 0 && sender.selectedSegmentIndex == 1) {
+            self.archiveFeedView.alpha = 0
+            // MAILBOX_FEED
+            self.mailboxFeedView.alpha = 1
+            self.mailboxFeedView.frame.origin.x = self.mailboxFeedView.frame.size.width
+            UIView.animateWithDuration(0.4,
+                animations: { () -> Void in
+                    // MAILBOX_FEED
+                    self.mailboxFeedView.frame.origin.x = 0
+                    // LATER_FEED
+                    self.laterFeedView.frame.origin.x = -self.laterFeedView.frame.width
+                }, completion: { (done: Bool) -> Void in
+                    self.laterFeedView.alpha = 0
+                })
+        }
+        
         // CASE 2: 0 -> 2
+        if (selectedSegmentIndex == 0 && sender.selectedSegmentIndex == 2) {
+            self.mailboxFeedView.alpha = 0
+            // ARCHIVE_FEED
+            self.archiveFeedView.alpha = 1
+            self.archiveFeedView.frame.origin.x = self.archiveFeedView.frame.size.width
+            UIView.animateWithDuration(0.4,
+                animations: { () -> Void in
+                    // ARCHIVE_FEED
+                    self.archiveFeedView.frame.origin.x = 0
+                    // LATER_FEED
+                    self.laterFeedView.frame.origin.x = -self.laterFeedView.frame.size.width
+                }, completion: { (done: Bool) -> Void in
+                    self.laterFeedView.alpha = 0
+            })
+        }
+        
         // CASE 3: 1 -> 0
+        if (selectedSegmentIndex == 1 && sender.selectedSegmentIndex == 0) {
+            self.archiveFeedView.alpha = 0
+            // LATER_FEED
+            self.laterFeedView.alpha = 1
+            self.laterFeedView.frame.origin.x = -self.laterFeedView.frame.size.width
+            UIView.animateWithDuration(0.4,
+                animations: { () -> Void in
+                    // LATER_FEED
+                    self.laterFeedView.frame.origin.x = 0
+                    // MAILBOX_FEED
+                    self.mailboxFeedView.frame.origin.x = self.mailboxFeedView.frame.size.width
+                }, completion: { (done: Bool) -> Void in
+                    self.mailboxFeedView.alpha = 0
+                })
+        }
+        
         // CASE 4: 1 -> 2
+        if (selectedSegmentIndex == 1 && sender.selectedSegmentIndex == 2) {
+            self.laterFeedView.alpha = 0
+            // ARCHIVE_FEED
+            self.archiveFeedView.alpha = 1
+            self.archiveFeedView.frame.origin.x = self.archiveFeedView.frame.size.width
+            UIView.animateWithDuration(0.4,
+                animations: { () -> Void in
+                    // ARCHIVE_FEED
+                    self.archiveFeedView.frame.origin.x = 0
+                    // MAILBOX_FEED
+                    self.mailboxFeedView.frame.origin.x = -self.mailboxFeedView.frame.size.width
+                }, completion: { (done: Bool) -> Void in
+                    self.mailboxFeedView.alpha = 0
+            })
+        }
+        
         // CASE 5: 2 -> 0
+        if (selectedSegmentIndex == 2 && sender.selectedSegmentIndex == 0) {
+            self.mailboxFeedView.alpha = 0
+            // LATER_FEED
+            self.laterFeedView.alpha = 1
+            self.laterFeedView.frame.origin.x = -self.laterFeedView.frame.size.width
+            UIView.animateWithDuration(0.4,
+                animations: { () -> Void in
+                    // LATER_FEED
+                    self.laterFeedView.frame.origin.x = 0
+                    // ARCHIVE_FEED
+                    self.archiveFeedView.frame.origin.x = self.archiveFeedView.frame.size.width
+                }, completion: { (done: Bool) -> Void in
+                    self.archiveFeedView.alpha = 0
+            })
+        }
+        
         // CASE 6: 2 -> 1
+        if (selectedSegmentIndex == 2 && sender.selectedSegmentIndex == 1) {
+            self.laterFeedView.alpha = 0
+            // MAILBOX_FEED
+            self.mailboxFeedView.alpha = 1
+            self.mailboxFeedView.frame.origin.x = -self.mailboxFeedView.frame.size.width
+            UIView.animateWithDuration(0.4,
+                animations: { () -> Void in
+                    // MAILBOX_FEED
+                    self.mailboxFeedView.frame.origin.x = 0
+                    // ARCHIVE_FEED
+                    self.archiveFeedView.frame.origin.x = self.archiveFeedView.frame.size.width
+                }, completion: { (done: Bool) -> Void in
+                    self.archiveFeedView.alpha = 0
+            })
+        }
+        
+        selectedSegmentIndex = sender.selectedSegmentIndex
     }
 
     func toggleMenu() {
