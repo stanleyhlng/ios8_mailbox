@@ -97,6 +97,9 @@
                                             <segment title="" image="archive_nav_icon"/>
                                         </segments>
                                         <color key="tintColor" red="0.31764705882352939" green="0.72549019607843135" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="onValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="6l9-7X-qgF"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -114,7 +117,7 @@
                         <outlet property="helpImageView" destination="CI8-TF-Og4" id="TZe-5r-K8L"/>
                         <outlet property="laterIconImageView" destination="UbU-yM-hAN" id="jLs-tc-iKE"/>
                         <outlet property="listIconImageView" destination="sfe-AM-cCu" id="NdC-Yv-Nhz"/>
-                        <outlet property="mailboxView" destination="Evn-eD-03Z" id="6Qv-do-eoU"/>
+                        <outlet property="mainView" destination="Evn-eD-03Z" id="x4c-ym-a9Z"/>
                         <outlet property="menuImageView" destination="CqL-e1-dC0" id="y3F-XM-KOL"/>
                         <outlet property="menuScrollView" destination="6e4-fW-uFD" id="TMn-8u-Kc1"/>
                         <outlet property="messageImageView" destination="mOl-Eb-Nzw" id="J4u-Uu-Saj"/>

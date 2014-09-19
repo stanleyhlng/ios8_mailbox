@@ -10,9 +10,9 @@ import UIKit
 
 class MailboxViewController: UIViewController, RescheduleViewControllerDelegate, ListViewControllerDelegate {
 
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var menuScrollView: UIScrollView!
     @IBOutlet weak var menuImageView: UIImageView!
-    @IBOutlet var mailboxView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var helpImageView: UIImageView!
@@ -201,7 +201,7 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
                 listIconImageView.alpha = 0
 
                 var d = translation.x - 70
-                deleteIconImageView.frame.origin.x = positions["deleteicon"]!["init"]!.x + d
+                deleteIconImageView.frame.origin.x = positions["delete_icon"]!["init"]!.x + d
             }
             
         }
@@ -316,30 +316,41 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
             // MAILBOX
             var pos = positions["mailbox"]!["close"]!
             pos.x = pos.x + translation.x
-            mailboxView.frame.origin.x = pos.x
+            mainView.frame.origin.x = pos.x
             println("mailbox.pos.x: \(pos.x)")
         }
         else if sender.state == UIGestureRecognizerState.Ended {
             // MAILBOX
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 if translation.x >= 125 {
-                    self.mailboxView.frame.origin = self.positions["mailbox"]!["open"]!
+                    self.mainView.frame.origin = self.positions["mailbox"]!["open"]!
                 }
                 else {
-                    self.mailboxView.frame.origin = self.positions["mailbox"]!["close"]!
+                    self.mainView.frame.origin = self.positions["mailbox"]!["close"]!
                 }
             })
         }
     }
     
+    @IBAction func onValueChanged(sender: UISegmentedControl) {
+        println("MailboxViewController - onValueChanged")
+        println(sender.selectedSegmentIndex)
+        // CASE 1: 0 -> 1
+        // CASE 2: 0 -> 2
+        // CASE 3: 1 -> 0
+        // CASE 4: 1 -> 2
+        // CASE 5: 2 -> 0
+        // CASE 6: 2 -> 1
+    }
+
     func toggleMenu() {
         println("MailboxViewController - toggleMenu")
         UIView.animateWithDuration(0.4, animations: { () -> Void in
-            if (self.mailboxView.frame.origin == self.positions["mailbox"]!["open"]!) {
-                self.mailboxView.frame.origin = self.positions["mailbox"]!["close"]!
+            if (self.mainView.frame.origin == self.positions["mailbox"]!["open"]!) {
+                self.mainView.frame.origin = self.positions["mailbox"]!["close"]!
             }
             else {
-                self.mailboxView.frame.origin = self.positions["mailbox"]!["open"]!
+                self.mainView.frame.origin = self.positions["mailbox"]!["open"]!
             }
         })
     }
