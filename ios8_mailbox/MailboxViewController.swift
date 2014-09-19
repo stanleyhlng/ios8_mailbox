@@ -64,6 +64,15 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
         positions["later_icon"] = [
             "init": laterIconImageView.frame.origin
         ]
+        positions["list_icon"] = [
+            "init": listIconImageView.frame.origin
+        ]
+        positions["archive_icon"] = [
+            "init": archiveIconImageView.frame.origin
+        ]
+        positions["delete_icon"] = [
+            "init": deleteIconImageView.frame.origin
+        ]
     }
 
     func setupMailboxScrollView() {
@@ -107,13 +116,6 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
             
             // MESSAGE
             positions["message"]!["init"]! = messageImageView.frame.origin
-            
-            // ICON:LATER
-            positions["later_icon"]!["init"]! = laterIconImageView.frame.origin
-            laterIconImageView.alpha = 0
-            
-            // ICON:ARCHIVE
-            archiveIconImageView.alpha = 0
 
         }
         else if sender.state == UIGestureRecognizerState.Changed {
@@ -153,6 +155,9 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
                 archiveIconImageView.alpha = 0
                 laterIconImageView.alpha = 0
                 listIconImageView.alpha = 1
+                
+                var d = translation.x + 70
+                listIconImageView.frame.origin.x = positions["list_icon"]!["init"]!.x + d
             }
             // ICON: LATER (YELLOW)
             else if translation.x > -235 && translation.x <= -70 {
@@ -160,6 +165,9 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
                 archiveIconImageView.alpha = 0
                 laterIconImageView.alpha = 1
                 listIconImageView.alpha = 0
+                
+                var d = translation.x + 70
+                laterIconImageView.frame.origin.x = positions["later_icon"]!["init"]!.x + d
             }
             // ICON: LATER (LIGHT GRAY)
             else if translation.x > -70 && translation.x <= 0 {
@@ -181,6 +189,9 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
                 archiveIconImageView.alpha = 1
                 laterIconImageView.alpha = 0
                 listIconImageView.alpha = 0
+                
+                var d = translation.x - 70
+                archiveIconImageView.frame.origin.x = positions["archive_icon"]!["init"]!.x + d
             }
             // ICON: DELETE (RED)
             else if translation.x > 235 {
@@ -188,30 +199,10 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
                 archiveIconImageView.alpha = 0
                 laterIconImageView.alpha = 0
                 listIconImageView.alpha = 0
-            }
-            
-            // ICON:LATER
-            /*
-            if (translation.x < 0) {
-                pos = positions["later_icon"]!["init"]!
 
-                // moving left
-                println("moving left")
-                if (abs(translation.x) <= 60) {
-                    
-                }
-                else {
-                    // LaterIcon: changing pos
-                    pos.x = pos.x + translation.x + 60
-                    laterIconImageView.frame.origin.x = pos.x
-                }
-                //println("later.icon.pos.x: \(pos.x)")
+                var d = translation.x - 70
+                deleteIconImageView.frame.origin.x = positions["deleteicon"]!["init"]!.x + d
             }
-            else {
-                // moving right
-                println("moving right")
-            }
-            */
             
         }
         else if sender.state == UIGestureRecognizerState.Ended {
@@ -222,29 +213,39 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
             UIView.animateWithDuration(0.4, animations:
                 { () -> Void in
                 
-                    if (abs(translation.x) <= 60) {
+                    if (abs(translation.x) <= 70) {
                         
-                        println("|translation.x| <= 60")
+                        println("|translation.x| <= 70")
                         
                         // INITIAL POSITION
                         self.messageImageView.frame.origin = self.positions["message"]!["init"]!
                         
                     }
-                    else if (translation.x < -60) {
+                    else if (translation.x < -70) {
                         
-                        println("translation.x < -60")
+                        println("translation.x < -70")
                         
                         // GO LEFT
                         self.messageImageView.frame.origin = self.positions["message"]!["left"]!
                         
+                        // ICON: LATER
+                        self.laterIconImageView.frame.origin.x = 20
+
+                        // ICON: LIST
+                        self.listIconImageView.frame.origin.x = 20
                     }
-                    else if (translation.x > 60) {
+                    else if (translation.x > 70) {
                         
-                        println("translation.x > 60")
+                        println("translation.x > 70")
                         
                         // GO RIGHT
                         self.messageImageView.frame.origin = self.positions["message"]!["right"]!
+                     
+                        // ICON: ARCHIVE
+                        self.archiveIconImageView.frame.origin.x = self.positions["message"]!["right"]!.x - 50
                         
+                        // ICON: DELETE
+                        self.deleteIconImageView.frame.origin.x = self.positions["message"]!["right"]!.x - 50
                     }
                     
                 }, completion: { (done: Bool) -> Void in
@@ -263,27 +264,27 @@ class MailboxViewController: UIViewController, RescheduleViewControllerDelegate,
                             self.performSegueWithIdentifier("listFromMailbox", sender: self)
                         }
                 
-                        // CASE 2: -220 < x <= -60, SHOW RESCHEDULE OPTIONS
-                        else if translation.x > -220 && translation.x <= -60 {
+                        // CASE 2: -220 < x <= -70, SHOW RESCHEDULE OPTIONS
+                        else if translation.x > -220 && translation.x <= -70 {
                             println("SHOW RESHEDULE OPTIONS")
                             self.performSegueWithIdentifier("rescheduleFromMailbox", sender: self)
                         }
                         
-                        // CASE 3: -60 < x <= 0, DO NOTHING
-                        if translation.x > -60 {
+                        // CASE 3: -70 < x <= 0, DO NOTHING
+                        if translation.x > -70 {
                             
                         }
                         
                     }
                     else {
                         
-                        // CASE 1: x > 0 && x <= 60, DO NOTHING
-                        if translation.x > 0 && translation.x <= 60 {
+                        // CASE 1: x > 0 && x <= 70, DO NOTHING
+                        if translation.x > 0 && translation.x <= 70 {
                             
                         }
                 
-                        // CASE 2: x > 60 && x <= 235, ARCHIVE MESSAGE
-                        else if translation.x > 60 && translation.x <= 235 {
+                        // CASE 2: x > 70 && x <= 235, ARCHIVE MESSAGE
+                        else if translation.x > 70 && translation.x <= 235 {
                             println("ARCHIVE MESSAGE")
                             self.slideupFeed()
                         }
